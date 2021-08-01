@@ -66,7 +66,7 @@ class Cameronjonesweb_Base_Theme {
 			'name' => 'Base Theme', // Theme Name.
 			'repo' => 'cameronjonesweb/cjw-base', // Theme repository.
 			'slug' => 'cjw-base', // Theme Slug.
-			'ver'  => 0.1, // Theme Version.
+			'ver'  => 0.2, // Theme Version.
 		);
 		new Updater( $updater );
 		$this->hooks();
@@ -87,7 +87,7 @@ class Cameronjonesweb_Base_Theme {
 				'footer'  => true,
 				'header'  => true,
 				'sidebar' => false,
-				'title'   => is_front_page() ? false : true,
+				'title'   => is_front_page() && ! is_blog() ? false : true,
 			)
 		);
 		$args = apply_filters( 'cjw_render_args', $args );
