@@ -1,0 +1,29 @@
+.alignwide {
+	max-width: 1500px;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.alignfull {
+	max-width: none;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+[class*="__inner-container"] {
+	& > * {
+		@extend .wrap;
+	}
+}

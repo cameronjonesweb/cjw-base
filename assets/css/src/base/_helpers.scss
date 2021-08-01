@@ -1,0 +1,15 @@
+.wrap {
+	width: 100%;
+	max-width: $contentWidth;
+	margin-left: auto;
+	margin-right: auto;
+	@include until( $contentWidth + ( $mobileGutter * 2 ) ) {
+		max-width: calc( 100% - #{ $mobileGutter * 2 } );
+	}
+}
+
+.wrap-items {
+	& > * {
+		@extend .wrap;
+	}
+}

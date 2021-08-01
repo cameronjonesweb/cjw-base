@@ -1,0 +1,13 @@
+.site-footer {
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+	margin-top: 2.5rem;
+}
+
+.copyright {}
+
+.attribution {
+	@include from( $tablet ) {
+		text-align: right;
+	}
+}

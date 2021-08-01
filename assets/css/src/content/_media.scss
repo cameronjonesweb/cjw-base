@@ -1,0 +1,24 @@
+img, figure, div.wp-caption {
+	max-width: 100%;
+
+
+	&.alignleft {
+		float: left;
+		margin-right: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	&.aligncenter {
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		margin-bottom: 1rem;
+		text-align: center;
+	}
+
+	&.alignright {
+		float: right;
+		margin-left: 1rem;
+		margin-bottom: 1rem;
+	}
+}

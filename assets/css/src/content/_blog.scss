@@ -1,0 +1,31 @@
+.hentry {
+	+ .hentry {
+		margin-top: 2rem;
+	}
+
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	&__thumbnail {
+		display: block;
+	}
+}
+
+.main-content {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	
+	> .alignfull,
+	> .alignwide {
+		&:first-child {
+			margin-top: -2rem;
+		}
+		
+		&:last-child {
+			margin-bottom: -2rem;
+		}
+	}
+}
