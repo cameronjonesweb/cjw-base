@@ -11,6 +11,15 @@
 	&__menu {
 		text-align: right;
 	}
+
+	&--fixed {
+		position: fixed;
+		width: 100%;
+
+		&--scrolled {
+			background: #fff;
+		}
+	}
 }
 
 .menu--primary {
@@ -96,6 +105,9 @@
 }
 
 .site-naviation {
+	@include from( $tablet ) {
+		display: none;
+	}
 	position: fixed;
 	top: 0;
 	left: 0;

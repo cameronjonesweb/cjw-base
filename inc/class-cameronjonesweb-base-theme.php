@@ -1,6 +1,6 @@
 <?php
 
-use function WP_Theme_Components\Register_Local_Assets\register_local_asset;
+use function WP_Theme_Components\Register_Local_Assets\register_template_asset;
 
 class Cameronjonesweb_Base_Theme {
 
@@ -54,21 +54,19 @@ class Cameronjonesweb_Base_Theme {
 		// Filters.
 		add_filter( 'post_class', array( $this, 'post_class' ) );
 		add_filter( 'wp_nav_menu_args', array( $this, 'nav_menu_args' ) );
+		add_filter( 'gform_submit_button', array( $this, 'give_gform_buttons_block_classes' ), 10, 2 );
+		add_filter( 'gform_previous_button', array( $this, 'give_gform_buttons_block_classes' ), 10, 2 );
+		add_filter( 'gform_next_button', array( $this, 'give_gform_buttons_block_classes' ), 10, 2 );
 	}
 
 	public function files() {
 		require_once $this->get_template_directory( 'inc/components.php' );
-		require_once $this->get_template_directory( 'inc/class-updater.php' );
+		// require_once $this->get_template_directory( 'inc/class-updater.php' );
 	}
 
 	public function bootstrap() {
-		$updater = array(
-			'name' => 'Base Theme', // Theme Name.
-			'repo' => 'cameronjonesweb/cjw-base', // Theme repository.
-			'slug' => 'cjw-base', // Theme Slug.
-			'ver'  => 0.2, // Theme Version.
-		);
-		new Updater( $updater );
+		// Set up any imported classes.
+		// Hooks.
 		$this->hooks();
 	}
 
@@ -87,7 +85,7 @@ class Cameronjonesweb_Base_Theme {
 				'footer'  => true,
 				'header'  => true,
 				'sidebar' => false,
-				'title'   => is_front_page() && ! is_blog() ? false : true,
+				'title'   => is_front_page() && ! is_home() ? false : true,
 			)
 		);
 		$args = apply_filters( 'cjw_render_args', $args );
@@ -164,11 +162,11 @@ class Cameronjonesweb_Base_Theme {
 
 	public function register_assets() {
 		// Styles.
-		register_local_asset( 'parent-theme-style', 'assets/css/style.min.css' );
-		register_local_asset( 'parent-admin-style', 'assets/css/admin.min.css' );
-		register_local_asset( 'font-awesome', 'assets/css/font-awesome.min.css', array(), '5.15.3' );
+		register_template_asset( 'parent-theme-style', 'assets/css/style.min.css' );
+		register_template_asset( 'parent-admin-style', 'assets/css/admin.min.css' );
+		register_template_asset( 'font-awesome', 'assets/css/font-awesome.min.css', array(), '5.15.3' );
 		// Scripts.
-		register_local_asset( 'parent-theme-scripts', 'assets/js/scripts.js', array( 'jquery' ) );
+		register_template_asset( 'parent-theme-scripts', 'assets/js/scripts.js', array( 'jquery' ) );
 	}
 
 	public function enqueue_assets() {
@@ -314,6 +312,11 @@ class Cameronjonesweb_Base_Theme {
 			$return = get_post_thumbnail_url( 'full' );
 		}
 		return $return;
+	}
+
+	public function give_gform_buttons_block_classes( $button, $form ) {
+		$button = str_replace( "class='gform_button", "class='gform_button wp-block-button__link", $button );
+		return $button;
 	}
 
 }

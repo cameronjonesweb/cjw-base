@@ -27,3 +27,23 @@
 		@extend .wrap;
 	}
 }
+
+.wp-block-media-text {
+	$this: &;
+	&.has-media-on-the-right {
+		#{$this}__content {
+			padding-left: 0;
+		}
+	}
+	&.has-media-on-the-left {
+		#{$this}__content {
+			padding-right: 0;
+		}
+	}
+}
+
+.wp-block-button {
+	&__link {
+		border-radius: 0;
+	}
+}
