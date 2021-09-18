@@ -18,19 +18,31 @@ h6 {
 }
 
 h1 {
-	font-size: 3rem;
-}
-
-h2 {
-	font-size: 2.5rem;
-}
-
-h3 {
+	@include from( $tablet ) {
+		font-size: 3rem;
+	}
 	font-size: 2rem;
 }
 
-h4 {
+h2 {
+	@include from( $tablet ) {
+		font-size: 2.5rem;
+	}
+	font-size: 1.75rem;
+}
+
+h3 {
+	@include from( $tablet ) {
+		font-size: 2rem;
+	}
 	font-size: 1.5rem;
+}
+
+h4 {
+	@include from( $tablet ) {
+		font-size: 1.5rem;
+	}
+	font-size: 1.25rem;
 }
 
 h5 {
@@ -61,4 +73,9 @@ ul {
 
 table {
 	width: 100%;
+}
+
+input[type=text], input[type=button], button, input[type=submit] {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 }

@@ -51,22 +51,16 @@ function render_acf_block( $block, $content = '', $is_preview = false, $post_id 
 	$path = get_template_path();
 	$tag  = get_block_tag();
 	$name = get_block_name( $block['name'] );
-	$attr = array(
-		'class' => array(
-			'wp-block-' . $name,
-		),
-	);
+	$attr = array();
 
 	if ( isset( $block['anchor'] ) && ! empty( $block['anchor'] ) ) {
 		$attr['id'] = $block['anchor'];
+	} else {
+		$attr['id'] = $block['id'];
 	}
 
 	if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
 		$attr['class'][] = $block['className'];
-	}
-
-	if ( isset( $block['align'] ) && ! empty( $block['align'] ) ) {
-		$attr['class'][] = 'align' . $block['align'];
 	}
 
 	$atts = get_attributes( $attr, $block );

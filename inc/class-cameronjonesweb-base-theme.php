@@ -171,7 +171,9 @@ class Cameronjonesweb_Base_Theme {
 
 	public function enqueue_assets() {
 		// Styles.
-		wp_enqueue_style( 'parent-theme-style' );
+		if ( empty( wp_get_theme()->parent() ) ) {
+			wp_enqueue_style( 'parent-theme-style' );
+		}
 		// Scripts.
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'parent-theme-scripts' );
@@ -316,6 +318,7 @@ class Cameronjonesweb_Base_Theme {
 
 	public function give_gform_buttons_block_classes( $button, $form ) {
 		$button = str_replace( "class='gform_button", "class='gform_button wp-block-button__link", $button );
+		$button = '<div class="wp-block-buttons"><div class="wp-block-button">' . $button . '</div></div>';
 		return $button;
 	}
 
