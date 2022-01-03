@@ -59,8 +59,22 @@ function render_acf_block( $block, $content = '', $is_preview = false, $post_id 
 		$attr['id'] = $block['id'];
 	}
 
+	// var_dump($block);
+
 	if ( isset( $block['wpClassName'] ) && ! empty( $block['wpClassName'] ) ) {
 		$attr['class'] = $block['wpClassName'];
+	} else {
+		$classes = array( 'wp-block-acf-' . $name );
+
+		if ( isset( $block['align'] ) && ! empty( $block['align'] ) ) {
+			$classes[] = 'align' . $block['align'];
+		}
+
+		if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
+			$classes[] = $block['className'];
+		}
+
+		$attr['class'] = implode( ' ', $classes );
 	}
 
 	$atts = get_attributes( $attr, $block );
