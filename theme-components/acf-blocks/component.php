@@ -5,7 +5,7 @@
  * @package WP-Theme-Components
  * @subpackage acf-blocks
  * @author Cameron Jones
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 namespace WP_Theme_Components\ACF_Blocks;
@@ -59,13 +59,11 @@ function render_acf_block( $block, $content = '', $is_preview = false, $post_id 
 		$attr['id'] = $block['id'];
 	}
 
-	if ( isset( $block['className'] ) && ! empty( $block['className'] ) ) {
-		$attr['class'][] = $block['className'];
+	if ( isset( $block['wpClassName'] ) && ! empty( $block['wpClassName'] ) ) {
+		$attr['class'] = $block['wpClassName'];
 	}
 
 	$atts = get_attributes( $attr, $block );
-
-	$attr['class'] = implode( ' ', $attr['class'] );
 
 	printf(
 		'<%1$s',
