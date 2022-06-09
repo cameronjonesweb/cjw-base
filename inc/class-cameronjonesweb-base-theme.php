@@ -207,7 +207,7 @@ class Cameronjonesweb_Base_Theme {
 	}
 
 	public function content_wrapper_open() {
-		if ( is_archive() || is_home() || is_search() ) {
+		if ( is_main_query() && ( is_archive() || is_home() || is_search() ) ) {
 			?>
 			<div class="main-content">
 			<?php
@@ -225,10 +225,10 @@ class Cameronjonesweb_Base_Theme {
 	}
 
 	public function post_class( $classes ) {
-		if ( is_singular() ) {
+		if ( is_singular() && is_main_query() ) {
 			$classes[] = 'wrap-items';
 			$classes[] = 'main-content';
-		} elseif ( is_archive() || is_home() || is_search() ) {
+		} elseif ( is_main_query() && ( is_archive() || is_home() || is_search() ) ) {
 			$classes[] = 'wrap-items';
 		}
 		return $classes;
