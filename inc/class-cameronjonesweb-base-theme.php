@@ -13,8 +13,8 @@ class Cameronjonesweb_Base_Theme {
 		array(
 			'name'          => 'Footer',
 			'id'            => 'footer',
-			'before_widget' => '<div>',
-			'after_widget'  => '</div>',
+			'before_widget' => wp_use_widgets_block_editor() ? '' : '<div>',
+			'after_widget'  => wp_use_widgets_block_editor() ? '' : '</div>',
 			'before_title'  => '<h4 class="widgettitle">',
 			'after_title'   => '</h4>',
 		)
