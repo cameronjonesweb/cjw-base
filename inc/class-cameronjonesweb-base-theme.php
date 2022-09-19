@@ -271,12 +271,14 @@ class Cameronjonesweb_Base_Theme {
 
 	public function get_widget_areas() {
 		$widget_areas = array(
-			'name'          => 'Footer',
-			'id'            => 'footer',
-			'before_widget' => wp_use_widgets_block_editor() ? '' : '<div>',
-			'after_widget'  => wp_use_widgets_block_editor() ? '' : '</div>',
-			'before_title'  => '<h4 class="widgettitle">',
-			'after_title'   => '</h4>',
+			array(
+				'name'          => 'Footer',
+				'id'            => 'footer',
+				'before_widget' => wp_use_widgets_block_editor() ? '' : '<div>',
+				'after_widget'  => wp_use_widgets_block_editor() ? '' : '</div>',
+				'before_title'  => '<h4 class="widgettitle">',
+				'after_title'   => '</h4>',
+			)
 		);
 		return apply_filters( 'cjw_widget_areas', $widget_areas );
 	}
