@@ -9,17 +9,6 @@ class Cameronjonesweb_Base_Theme {
 		'mobile'  => 'Primary (Mobile)',
 	);
 
-	private $widget_areas = array(
-		array(
-			'name'          => 'Footer',
-			'id'            => 'footer',
-			'before_widget' => wp_use_widgets_block_editor() ? '' : '<div>',
-			'after_widget'  => wp_use_widgets_block_editor() ? '' : '</div>',
-			'before_title'  => '<h4 class="widgettitle">',
-			'after_title'   => '</h4>',
-		)
-	);
-
 	/**
 	 * Creates a singleton instance of the theme class.
 	 *
@@ -281,7 +270,15 @@ class Cameronjonesweb_Base_Theme {
 	}
 
 	public function get_widget_areas() {
-		return apply_filters( 'cjw_widget_areas', $this->widget_areas );
+		$widget_areas = array(
+			'name'          => 'Footer',
+			'id'            => 'footer',
+			'before_widget' => wp_use_widgets_block_editor() ? '' : '<div>',
+			'after_widget'  => wp_use_widgets_block_editor() ? '' : '</div>',
+			'before_title'  => '<h4 class="widgettitle">',
+			'after_title'   => '</h4>',
+		);
+		return apply_filters( 'cjw_widget_areas', $widget_areas );
 	}
 
 	public function hamburger_menu( $slug = null ) {
