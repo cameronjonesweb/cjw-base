@@ -1653,16 +1653,28 @@ h6 {
   font-weight: bold; }
 
 h1 {
-  font-size: 3rem; }
+  font-size: 2rem; }
+  @media screen and (min-width: 769px) {
+    h1 {
+      font-size: 3rem; } }
 
 h2 {
-  font-size: 2.5rem; }
+  font-size: 1.75rem; }
+  @media screen and (min-width: 769px) {
+    h2 {
+      font-size: 2.5rem; } }
 
 h3 {
-  font-size: 2rem; }
+  font-size: 1.5rem; }
+  @media screen and (min-width: 769px) {
+    h3 {
+      font-size: 2rem; } }
 
 h4 {
-  font-size: 1.5rem; }
+  font-size: 1.25rem; }
+  @media screen and (min-width: 769px) {
+    h4 {
+      font-size: 1.5rem; } }
 
 h5 {
   font-size: 1rem; }
@@ -1688,6 +1700,13 @@ ul {
 
 table {
   width: 100%; }
+
+input[type=text], input[type=button], button, input[type=submit] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0; }
+
+a:not([class*="button"]):not([class*="btn"]) {
+  word-break: break-all; }
 
 .wrap, .wrap-items > *, [class*="__inner-container"] > * {
   width: 100%;
@@ -1954,6 +1973,10 @@ ul.menu ul {
 
 .wp-block-button__link {
   border-radius: 0; }
+
+.wp-block-file a.wp-block-file__button {
+  text-align: center;
+  text-decoration: none; }
 
 .hentry + .hentry {
   margin-top: 2rem; }
